@@ -1,0 +1,12 @@
+.span1{
+    position: absolute;
+    right: 20px;
+    transform: translate(0, -50%);
+    top: 50%;
+    cursor: pointer;
+}
+
+.fa{
+    font-size: 20px;
+    color: #7a797e;
+}

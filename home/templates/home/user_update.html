@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    
+    {% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gym Reservation</title>
+    <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}">
+    <link rel="stylesheet" href="{% static 'asset/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/untitled.css' %}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion " style="background-image: linear-gradient(-45deg, green, red);">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" >
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color:white" >Welcome <br> {{ user.username }}</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'profile' %}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'session' %}"><i class="fas fa-table"></i>Reserve Gym</a>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'queue' %}"><i class="fas fa-table"></i>Coaching Videos</a>
+ 
+            
+                </ul>
+                <div class="text-center d-none d-md-inline"></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                           
+                           
+                          
+
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"><span class="d-none d-lg-inline mr-2 text-gray-600 small"  style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{ user.username }}</span>
+                                    <img class="border rounded-circle img-profile" src="{{ request.user.image.url }}"></a>
+                                    
+            </div>
+            </li>
+            </ul>
+        </div>
+        </nav>
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4"  style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Profile</h3>
+            <div class="row mb-3">
+                <div class="col-lg-4">
+                    <div class="card mb-3">
+                        <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="{{request.user.image.url}}" width="200" height="200">
+                         <div><h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{ user.username }}</h4></div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4"></div>
+                </div>
+                <div class="col-lg-8">
+            
+                    <div class="row"  >
+                        <div class="col">
+                            <div class="card shadow mb-3">
+                                <div class="card-header py-3" style="background-image: linear-gradient(rgb(0, 204, 255), rgb(63, 68, 73));">
+                                    <p class=" m-0 font-weight-bold" style="color: black;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">User Settings</p> 
+                                </div>
+                                <div class="form-container" style=" background-image: linear-gradient(0.25turn, #5f5e5a, #9b9a97, #3d3934);; padding-top: 15px;">
+                                    <form action="" method="POST" enctype="multipart/form-data" class="form-group">
+                                        {% csrf_token %}
+                                       
+                                        <div class="form-group" style="color: black;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                            <div class="col">
+                                                {% for field in form %}
+                                                   <b> <label style="background-color: rgb(77, 77, 71); font-weight: 500; color: rgb(247, 239, 239); padding: 10px; border-radius: 10px;">{{field.label}}</label> </b>
+                                                    {{field}}
+                                                    <hr>
+                                                {% endfor %}
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group"><button class="btn btn-success btn-sm" type="submit" style="padding: 1.5%; margin-left: 20%;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Save Settings</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"></div>
+        </div>
+    </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="{% static 'asset/js/jquery.min.js' %}"></script>
+    <script src="{% static 'asset/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'asset/js/chart.min.js' %}"></script>
+    <script src="{% static 'asset/js/bs-init.js' %}"></script>
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js' %}"></script>
+    <script src="{% static 'asset/js/theme.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

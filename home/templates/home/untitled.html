@@ -1,0 +1,373 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/eye.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 1000px;
+          position: relative;
+          margin: auto;
+        }
+        
+        
+        /* Caption text */
+        .text1 {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+          .text1 {font-size: 11px}
+        }
+        </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <title>Gym Reservation</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Kaushan+Script' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Lora'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Article-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/untitled-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background-image: linear-gradient(-45deg, green, red);">
+        <div class="container"><a class="navbar-brand" href="#page-top"></a>
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#head"><strong>home</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#back"><strong>about-us</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#portfolio"><strong>equipment</strong></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js--trigger" href="#login" ><strong>LOGIN</strong></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js--trigger" href="{% url 'user-register' %}" ><strong>REGISTER</strong></a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <header id="head" class="masthead">
+        <div style="background-image: linear-gradient(-45deg, rgb(0, 23, 128), rgb(0, 255, 21));">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                  <div class="numbertext"></div>
+                  <img src="{% static 'assets/img/portfolio/sli1.jpg' %}" style="width:100%">
+                  <div class="text1"></div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext"></div>
+                  <img src="{% static 'assets/img/portfolio/sli2.jpg' %}" style="width:100%">
+                  <div class="text1"></div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext"></div>
+                  <img src="{% static 'assets/img/portfolio/sli3.jpg' %}" style="width:100%">
+                  <div class="text1"></div>
+                </div>
+                
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="{% static 'assets/img/portfolio/sli4.jpg' %}" style="width:100%">
+                    <div class="text1"></div>
+                  </div>
+
+                  <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="{% static 'assets/img/portfolio/sli5.jpg' %}" style="width:100%">
+                    <div class="text1"></div>
+                  </div>
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                </div>
+      
+            <div class="intro-text">
+                <div class="intro-lead-in" style="margin-right: 100px;" ><span>LETS GYM!</span></div>
+                <div class="intro-lead-in" ><span>GYM FOR BODY, GYM FOR MIND</span></div>
+                <div class="intro-heading text-uppercase"><span>gym reservation</span></div>
+            
+        </div>
+    </div>
+    </header>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+
+    <div id="back" class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center" style="opacity: 0.89;">BACKGROUND</h1>
+                    {% for object in desob %}
+                        <img class="img-fluid" src="{{ object.image.url }}"></div>
+         
+                        <div class="text">
+                          <p> {{ object.description }} </p> 
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="portfolio" class="bg-light" style="padding-bottom: 200px;">
+        <div>
+            <h1 class="text-center text-dark" style="padding-bottom: 20px;opacity: 0.83;margin-top: -100px;">Equipments Available</h1>
+        </div>
+        <h1></h1>
+        <div class="container">
+            <div class="row">
+                {% for object in equipob %}
+                <div class="col-sm-6 col-md-4 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ object.id }}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{{ object.image.url }}"></a>
+                    <div class="portfolio-caption">
+                        <h4><br><strong>{{ object.objname }}</strong><br><br></h4>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div style="padding-top: 100px; background-color: rgb(154, 203, 236);" id="login">
+        <center>
+        <h1>Login to Reserve For Gym</h1>
+        <h3>Login Now</h3>
+        <div style="padding-left: 50px; padding-bottom: 40px;">
+            <p >Click <a href="" data-toggle="modal" data-target="#Modallogin"> Here </a> To login</p>
+            <div>
+                {% for msg in messages %}
+                <div class="alert alert-error" role="alert">
+                    <h4 class="alert-heading">Error!!!</h4>
+                    <p>{{ msg }} </p>
+                    
+                   
+                  </div>
+                  
+                
+                {% endfor %}
+              </div>
+            
+            </div>
+        </center>
+        <div class="modal" tabindex="-1" role="dialog" id="Modallogin">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+               
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body" style="background-image: linear-gradient(skyblue, white);">
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email</label>
+                      <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+                
+                    <div class="mb-3">
+                      <label for="" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="password" id="password">
+                      <span class="span1">
+                        <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
+                      </span>
+                    </div>
+
+                    <script>
+                        var state = false;
+                        function toggle(){
+                            if(state){
+                                document.getElementById('password').setAttribute("type", "password");
+                                document.getElementById("eye").style.color='#7a797e';
+                                state = false
+                            }
+                            else{
+                                document.getElementById("password").setAttribute("type", "text");
+                                document.getElementById("eye").style.color='#5887ef';
+                                state = true
+                            }
+                        }
+                    </script>                   
+                    <hr>
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+                
+                  
+                </div>
+                </form>
+            
+            
+            </div>
+            
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+    <div class="footer-dark">
+        <footer>
+            {% for object in footerob %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><p>{{ object.services }} </p></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><p>{{ object.about }} </p></li>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Gym reservation</h3>
+                        <p>{{ object.gym }}<br></p>
+                    </div>
+                    <div class="col item social"><a href="https://www.facebook.com/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/i/flow/login"><i class="icon ion-social-twitter"></i></a><a href="https://snapchat.com"><i class="icon ion-social-snapchat"></i></a><a href="https://instagram.com"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright" >Gym reservation&nbsp; 2021</p>
+            </div>
+            {% endfor %}
+        </footer>
+
+        {% for object in equipob %}
+    </div><div role="dialog" tabindex="-1" class="modal fade portfolio-modal text-center" id="portfolioModal{{ object.id }}">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <h2 class="text-uppercase">{{ object.objname }}</h2>
+                               <img class="img-fluid d-block mx-auto" src="{{ object.image.url }}" />
+                                <p>
+                                    {{ object.description }}
+                                </p>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span> Finish Reading</span></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{% static 'assets/js/agency.js' %}"></script>
+</body>
+
+</html>

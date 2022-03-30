@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    
+    {% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gym Reservation</title>
+    <link rel="stylesheet" href="{% static 'asset/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}">
+    <link rel="stylesheet" href="{% static 'asset/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/untitled.css' %}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion" style="background-image: linear-gradient(-45deg, green, red);">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color:white">Welcome <br> {{ user.username }}</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'session' %}"><i class="fas fa-table"></i>Reserve Gym</a>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'queue' %}"><i class="fas fa-table"></i>Coaching Videos</a>
+                </ul>
+                <div class="text-center d-none d-md-inline"></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+            
+                           
+                           
+                          
+
+                                
+                                    {% if request.user.is_authenticated %}
+                                   
+                                                {% endif %}
+            
+        <div class="container-fluid">
+            <h1 class="text-dark mb-4" style="text-align: center; margin-top: 10px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><marquee width="40%" direction="left" height="50px"> Reserve your Gym for tomorrow!</marquee></h1>
+            <div class="row mb-3">
+                <div class="col-lg-4" style="background-color: black; border-radius: 10px;">
+                    <div class="card mb-3" style="background-color: black; margin-top: 40px;">
+                        <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="{{ request.user.image.url }}" width="160" height="160">
+                            <div class="mb-3"><h3 style="color: aliceblue;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{ user.username }}</h3></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-8">
+            
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow mb-3">
+                                <div class="card-header py-3" style="background-color: black; padding-bottom: 90px;">
+                                    <p class="text-primary m-0 font-weight-bold"  style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: larger;">Reserve Gym ({{ session_available }} seats available)</p>
+                                    <p class="text-white m-0 font-weight-bold">Please submit the screeshot of your payment in the image section below. <br>
+                                        Cost= 500 per hour (Account_number: 201142981) </p>
+                                </div>
+                                    
+                                
+                                <div class="card-body" style="background-color: black; ">
+                                    <form method="POST" action="" enctype="multipart/form-data" style="background-color: rgb(228, 240, 250); font-weight: 800; color: black; border-radius: 10px; padding-top: 5px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                        {% csrf_token %}
+                                       
+                                        <div class="col" >
+                                            <div  style="margin-top: 20px; margin-left: 30px;">
+                                                
+                                                {{ form.as_p }}
+                                     
+                                            
+                                        <div class="form-group"><button class="btn btn-info btn-sm" type="submit" style="padding-left: 20px; padding-right: 20px;">Reserve</button></div>
+                                    </div>
+                                    </form>
+                                    <hr>
+                                    <!-- {% if obj %}
+                                    <h3>Successfully uploaded</h3>
+                                    <img src="{{ obj.image.url }}" alt="image" height="50%" width="50%">
+                                    {% endif %} -->
+
+                                  
+                                </div>
+                            </div>
+                            <div class="card shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-5"></div>
+        </div>
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"></div>
+        </div>
+    </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="{% static 'asset/js/jquery.min.js' %}"></script>
+    <script src="{% static 'asset/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'asset/js/chart.min.js' %}"></script>
+    <script src="{% static 'asset/js/bs-init.js' %}"></script>
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js' %}"></script>
+    <script src="{% static 'asset/js/theme.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}
